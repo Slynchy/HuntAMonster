@@ -1,0 +1,14 @@
+./.nyc_output
+.nyc_output
+
+./data
+data
+
+./.idea
+.idea
+
+./node_modules
+node_modules
+
+./lib
+lib
