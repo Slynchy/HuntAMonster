@@ -1,6 +1,6 @@
 {
   "name": "huntamonster",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Selects a Monster Hunter quest based on parameters",
   "main": "./lib/cjs/index.js",
   "types": "./lib/cjs/index.d.ts",
