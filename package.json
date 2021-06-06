@@ -2,15 +2,20 @@
   "name": "mh-decisions-decisions",
   "version": "1.0.0",
   "description": "Selects a Monster Hunter quest based on parameters",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "types": "./lib/cjs/index.d.ts",
+  "module": "./lib/esm/index.js",
+  "files": [
+    "./lib/**/*"
+  ],
   "scripts": {
     "test": "npm run lint && nyc ./node_modules/.bin/_mocha 'test/**/*.test.ts'",
     "start": "ts-node src/index.ts",
-    "build": "npm run lint && tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
     "buildJSON": "npx ./scripts/generateQuestJSON.js",
     "buildMonsterJSON": "npx ./scripts/generateMonsterJSON.js",
-    "lint": "npx tslint --project tsconfig.json -c tslint.json 'src/**/*.ts'"
+    "lint": "npx tslint --project tsconfig.json -c tslint.json 'src/**/*.ts'",
+    "prepublishOnly" : "npm test && npm run build"
   },
   "keywords": [
     "monster-hunter",
