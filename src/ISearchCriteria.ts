@@ -5,7 +5,7 @@ export interface ISearchMonsterItem {
 
 export interface ISearchCriteria {
     monsters?: ISearchMonsterItem[];
-    excludeMonsters?: string[];
+    excludeMonsters?: ISearchMonsterItem[];
     excludeQuests?: string[];
     includeMaterials?: string[];
     minRating?: number;

@@ -1,27 +1,31 @@
-import * as monsterdata from "./monsters.json";
-import * as questdata from "./quests.json";
-import * as itemdata from "./items.json";
+import * as _monsterdata from "./monsters.json";
+import * as _questdata from "./quests.json";
+import * as _itemdata from "./items.json";
 import { ISearchCriteria, ISearchMonsterItem } from "./ISearchCriteria";
 import { LANGUAGES, MONSTER_REWARDS } from "./Enums";
 import { debugLog, debugLogObj } from "./DebugLog";
 import { QuestID } from "./SharedTypes";
 import { QuestData, QuestRaw } from "./QuestTypes";
-import { ISearchResult, MonsterData, MonsterDropData, MonstersRaw } from "./MonsterTypes";
+import { MonsterData, MonsterDropData, MonstersRaw } from "./MonsterTypes";
 import { ItemsRaw } from "./ItemTypes";
+
+export interface ISearchResult {
+    quests: QuestID[]
+}
 
 export class MonsterHunterDecisions {
     // fixme: work out what's wrong with the types needing `unknown`
     private static _itemCache: Readonly<ItemsRaw> =
-        itemdata as unknown as ItemsRaw;
+        _itemdata as unknown as ItemsRaw;
     private static _monsterCache: Readonly<MonstersRaw> =
-        monsterdata as unknown as MonstersRaw;
+        _monsterdata as unknown as MonstersRaw;
     private static _questCache: Readonly<QuestRaw> =
-        questdata;
+        _questdata;
 
     private static _monsterIDs: Readonly<string[]> =
-        Object.keys(monsterdata).filter((e: string) => monsterdata.hasOwnProperty(e));
+        Object.keys(_monsterdata).filter((e: string) => _monsterdata.hasOwnProperty(e));
     private static _questIDs: Readonly<string[]> =
-        Object.keys(questdata).filter((e: string) => questdata.hasOwnProperty(e));
+        Object.keys(_questdata).filter((e: string) => _questdata.hasOwnProperty(e));
 
     private static _numOfMonsters: Readonly<number> =
         MonsterHunterDecisions._monsterIDs.length;
@@ -29,6 +33,18 @@ export class MonsterHunterDecisions {
         MonsterHunterDecisions._questIDs.length;
 
     constructor() { throw new Error("This class is not to be instantiated.") }
+
+    public static getItemData(): ItemsRaw {
+        return this._itemCache;
+    }
+
+    public static getMonsterData(): ItemsRaw {
+        return this._monsterCache;
+    }
+
+    public static getQuestData(): ItemsRaw {
+        return this._itemCache;
+    }
 
     public static findQuests(_criteria: ISearchCriteria): ISearchResult {
         const critMonsters: ISearchMonsterItem[] = _criteria.monsters || [];
@@ -127,10 +143,11 @@ export class MonsterHunterDecisions {
         }
 
         for(const _qMID of _quest.monsters) {
-            const ind: number = excludeMonsters.indexOf(_qMID);
-            if(ind !== -1) {
-                debugLog(`Quest contains excluded monster ${_qMID}`);
-                return false
+            for(const _mon of excludeMonsters) {
+                if(_mon.id === _qMID) {
+                    debugLog(`Quest contains excluded monster ${_qMID}`);
+                    return false
+                }
             }
         }
         return true;

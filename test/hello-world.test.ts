@@ -77,7 +77,7 @@ _chai.should();
             monsters: [{
                 id: "082_00"
             }],
-            excludeMonsters: ["097_00"]
+            excludeMonsters: [{id: "097_00"}]
         }).quests.length;
         expect(
             result,

@@ -1,9 +1,5 @@
 import { QuestID } from "./SharedTypes";
 
-export interface ISearchResult {
-    quests: QuestID[]
-}
-
 export interface MonsterDropData {
     id: string;
     amount: string;
