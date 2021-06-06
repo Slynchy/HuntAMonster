@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es3",
+    "module": "ES2020",
+    "declaration": true,
+    "moduleResolution": "node",
+    "outDir": "./lib/esm",
+    "rootDir": "./src",
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "baseUrl": "",
+    "allowJs": false,
+    "inlineSourceMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "./src"
+  ]
+}

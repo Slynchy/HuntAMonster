@@ -1,0 +1,21 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "typedef": true,
+        "no-parameter-reassignment": true,
+        "ban-comma-operator": true,
+        "forin": true,
+        "no-eval": true,
+        "no-implicit-dependencies": true,
+        "no-inferred-empty-object-type": true,
+        "no-invalid-this": true,
+        "no-return-await": true,
+        "no-string-throw": true,
+        "prefer-const": true
+    },
+    "rulesDirectory": []
+}
