@@ -13,7 +13,7 @@ export interface ISearchResult {
     quests: QuestID[]
 }
 
-export class MonsterHunterDecisions {
+export class HuntAMonster {
     // fixme: work out what's wrong with the types needing `unknown`
     private static _itemCache: Readonly<ItemsRaw> =
         _itemdata as unknown as ItemsRaw;
@@ -28,9 +28,9 @@ export class MonsterHunterDecisions {
         Object.keys(_questdata).filter((e: string) => _questdata.hasOwnProperty(e));
 
     private static _numOfMonsters: Readonly<number> =
-        MonsterHunterDecisions._monsterIDs.length;
+        HuntAMonster._monsterIDs.length;
     private static _numOfQuests: Readonly<number> =
-        MonsterHunterDecisions._questIDs.length;
+        HuntAMonster._questIDs.length;
 
     constructor() { throw new Error("This class is not to be instantiated.") }
 

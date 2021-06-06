@@ -1,4 +1,4 @@
-import { MonsterHunterDecisions, ISearchResult } from "./MonsterHunterDecisions";
+import { HuntAMonster, ISearchResult } from "./HuntAMonster";
 import { MONSTER_REWARDS, LANGUAGES, RANK } from "./Enums";
 import { QuestID, MonsterID, ItemID } from "./SharedTypes";
 import { MonsterDropData, MonsterData, MonstersRaw } from "./MonsterTypes";
@@ -7,7 +7,7 @@ import { ISearchCriteria } from "./ISearchCriteria"
 
 export {
     // huntamonster stuff
-    MonsterHunterDecisions,
+    HuntAMonster,
     ISearchResult, ISearchCriteria,
 
     // enums

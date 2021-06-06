@@ -1,7 +1,7 @@
 import { suite, test } from '@testdeck/mocha';
 import * as _chai from 'chai';
 import { expect } from 'chai';
-import { MonsterHunterDecisions } from "../src/MonsterHunterDecisions";
+import { HuntAMonster } from "../src/HuntAMonster";
 import * as data from "../src/monsters.json";
 import * as questData from "../src/quests.json";
 import { LANGUAGES, RANK } from "../src/Enums";
@@ -15,7 +15,7 @@ _chai.should();
     'should not be able to instantiate module'(): any {
         let err;
         try {
-            const module: MonsterHunterDecisions = new MonsterHunterDecisions();
+            const module: HuntAMonster = new HuntAMonster();
         } catch(_err) { err = _err }
         expect(Boolean(err)).to.equal(true);
     }
@@ -23,7 +23,7 @@ _chai.should();
     @test
     'Fetching item ID "normal_0308" in "en" should return "Bubblefoam+"'(): any {
         expect(
-            MonsterHunterDecisions.getItemNameFromID("normal_0308", LANGUAGES.en)
+            HuntAMonster.getItemNameFromID("normal_0308", LANGUAGES.en)
         ).to.equal(
             "Bubblefoam+"
         );
@@ -32,7 +32,7 @@ _chai.should();
     @test
     'Fetching item ID "normal_0308" in "ja" should return "泡立つ上滑液"'(): any {
         expect(
-            MonsterHunterDecisions.getItemNameFromID("normal_0308", LANGUAGES.ja)
+            HuntAMonster.getItemNameFromID("normal_0308", LANGUAGES.ja)
         ).to.equal(
             "泡立つ上滑液"
         );
@@ -41,14 +41,14 @@ _chai.should();
     @test
     'an empty search should return all quests'(): any {
         const questsLength: number = Object.keys(questData).length - 1;
-        const result: number = MonsterHunterDecisions.findQuests({}).quests.length;
+        const result: number = HuntAMonster.findQuests({}).quests.length;
         expect(result).to.equal(questsLength);
     }
 
     @test
     'two identical searches should return the same result'(): any {
         function runTest() {
-            return MonsterHunterDecisions.findQuests({
+            return HuntAMonster.findQuests({
                 monsters: [{
                     id: "082_00"
                 }]
@@ -62,7 +62,7 @@ _chai.should();
     @test
     'a Mizutsune-only search should return same number of quests as all Mizutsune quests'(): any {
         const mizutsuneQuestsLength: number = data["082_00"].quests.length;
-        const result: number = MonsterHunterDecisions.findQuests({
+        const result: number = HuntAMonster.findQuests({
             monsters: [{
                 id: "082_00"
             }]
@@ -73,7 +73,7 @@ _chai.should();
     @test
     'a Mizutsune-only search but excluding Goss Harag should return a different number less-than the total Mizutsune quests'(): any {
         const mizutsuneQuestsLength: number = data["082_00"].quests.length;
-        const result: number = MonsterHunterDecisions.findQuests({
+        const result: number = HuntAMonster.findQuests({
             monsters: [{
                 id: "082_00"
             }],
@@ -88,7 +88,7 @@ _chai.should();
     @test
     'a Mizutsune-only search but excluding HR7 quests should return a different number less-than the total Mizutsune'(): any {
         const mizutsuneQuestsLength: number = data["082_00"].quests.length;
-        const result: number = MonsterHunterDecisions.findQuests({
+        const result: number = HuntAMonster.findQuests({
             monsters: [{
                 id: "082_00"
             }],
@@ -108,7 +108,7 @@ _chai.should();
             data["082_00"].quests.filter((e) => questData[e].rank === RANK.HIGH).length;
 
         // Do search for Mizutsune quests with item from HR Mizu
-        const result = MonsterHunterDecisions.findQuests({
+        const result = HuntAMonster.findQuests({
             includeMaterials: ["normal_0308"]
         });
 

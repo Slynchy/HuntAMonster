@@ -19,17 +19,17 @@ An npm module written in Typescript that can find quests for Monster Hunter: Ris
 
 ````
 import { 
-    MonsterHunterDecisions
+    HuntAMonster
 } from "huntamonster";
 
 // You can access the raw data to fetch things like item names <-> ids
-MonsterHunterDecisions.getItemData();
-MonsterHunterDecisions.getMonsterData();
-MonsterHunterDecisions.getQuestData();
+HuntAMonster.getItemData();
+HuntAMonster.getMonsterData();
+HuntAMonster.getQuestData();
 
 // Once you know the IDs of what you need to find, you can plug them
 // into the search property object like so:
-MonsterHunterDecisions.findQuests({
+HuntAMonster.findQuests({
 
     // Mizutsune
     monsters: [{id: "082_00"}],
