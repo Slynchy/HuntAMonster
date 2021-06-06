@@ -1,5 +1,5 @@
 {
-  "name": "mh-decisions-decisions",
+  "name": "huntamonster",
   "version": "1.0.0",
   "description": "Selects a Monster Hunter quest based on parameters",
   "main": "./lib/cjs/index.js",
@@ -15,7 +15,7 @@
     "buildJSON": "npx ./scripts/generateQuestJSON.js",
     "buildMonsterJSON": "npx ./scripts/generateMonsterJSON.js",
     "lint": "npx tslint --project tsconfig.json -c tslint.json 'src/**/*.ts'",
-    "prepublishOnly" : "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build"
   },
   "keywords": [
     "monster-hunter",
