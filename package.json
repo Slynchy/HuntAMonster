@@ -10,7 +10,7 @@
     "url": "https://github.com/Slynchy/HuntAMonster.git"
   },
   "files": [
-    "./lib/**/*"
+    "lib/"
   ],
   "scripts": {
     "test": "npm run lint && nyc ./node_modules/.bin/_mocha 'test/**/*.test.ts'",

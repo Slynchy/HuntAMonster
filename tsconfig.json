@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es3",
-    "module": "commonjs",
+    "target": "ES2015",
+    "module": "ES2020",
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./lib/esm",
     "declaration": true,
     "moduleResolution": "node",
-    "outDir": "./lib/esm",
     "rootDir": "./src",
-    "strict": true,
     "alwaysStrict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
@@ -14,8 +16,6 @@
     "baseUrl": "",
     "allowJs": false,
     "inlineSourceMap": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true
   },
   "include": [
