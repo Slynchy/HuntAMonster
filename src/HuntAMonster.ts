@@ -16,11 +16,11 @@ export interface ISearchResult {
 export class HuntAMonster {
     // fixme: work out what's wrong with the types needing `unknown`
     private static _itemCache: Readonly<ItemsRaw> =
-        _itemdata as unknown as ItemsRaw;
+        Object.assign({}, _itemdata) as unknown as ItemsRaw;
     private static _monsterCache: Readonly<MonstersRaw> =
-        _monsterdata as unknown as MonstersRaw;
+        Object.assign({}, _monsterdata) as unknown as MonstersRaw;
     private static _questCache: Readonly<QuestRaw> =
-        _questdata;
+        Object.assign({}, _questdata);
 
     private static _monsterIDs: Readonly<string[]> =
         Object.keys(_monsterdata).filter((e: string) => _monsterdata.hasOwnProperty(e));
