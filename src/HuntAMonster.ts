@@ -23,9 +23,9 @@ export class HuntAMonster {
         Object.assign({}, _questdata);
 
     private static _monsterIDs: Readonly<string[]> =
-        Object.keys(_monsterdata).filter((e: string) => _monsterdata.hasOwnProperty(e));
+        Object.keys(HuntAMonster._monsterCache).filter((e: string) => HuntAMonster._monsterCache.hasOwnProperty(e));
     private static _questIDs: Readonly<string[]> =
-        Object.keys(_questdata).filter((e: string) => _questdata.hasOwnProperty(e));
+        Object.keys(HuntAMonster._questCache).filter((e: string) => HuntAMonster._questCache.hasOwnProperty(e));
 
     private static _numOfMonsters: Readonly<number> =
         HuntAMonster._monsterIDs.length;
