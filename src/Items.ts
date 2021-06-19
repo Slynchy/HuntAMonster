@@ -1,6 +1,7 @@
-import { ItemsRaw } from "./ItemTypes";
+// import { ItemsRaw } from "./ItemTypes";
 
-export const Items: ItemsRaw = {
+// @ts-ignore
+export const Items: any = {
     "normal_0092": {
         "name": {
             "mh-lang-0": "雌火竜の鱗",

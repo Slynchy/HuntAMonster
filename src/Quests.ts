@@ -1,6 +1,7 @@
-import { QuestRaw } from "./QuestTypes";
+// import { QuestRaw } from "./QuestTypes";
 
-export const Quests: QuestRaw = {
+// @ts-ignore
+export const Quests: any = {
     "010101": {
         "name": {
             "mh-lang-0": "大社跡の探索ツアー",

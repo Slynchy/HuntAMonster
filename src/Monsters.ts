@@ -1,6 +1,7 @@
-import { MonsterData, MonstersRaw } from "./MonsterTypes";
+// import { MonsterData, MonstersRaw } from "./MonsterTypes";
 
-export const Monsters: MonstersRaw =
+// @ts-ignore
+export const Monsters: any =
     {
         "001_00": {
             "name": {
