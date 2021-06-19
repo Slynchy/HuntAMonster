@@ -1,6 +1,3 @@
-import * as _monsterdata from "./monsters.json";
-import * as _questdata from "./quests.json";
-import * as _itemdata from "./items.json";
 import { ISearchCriteria, ISearchMonsterItem } from "./ISearchCriteria";
 import { LANGUAGES, MONSTER_REWARDS } from "./Enums";
 import { debugLog, debugLogObj } from "./DebugLog";
@@ -8,6 +5,9 @@ import { QuestID } from "./SharedTypes";
 import { QuestData, QuestRaw } from "./QuestTypes";
 import { MonsterData, MonsterDropData, MonstersRaw } from "./MonsterTypes";
 import { ItemsRaw } from "./ItemTypes";
+import { Quests as _questdata } from "./Quests";
+import { Monsters as _monsterdata } from "./Monsters";
+import { Items as _itemdata } from "./Items";
 
 export interface ISearchResult {
     quests: QuestID[]
@@ -56,7 +56,6 @@ export class HuntAMonster {
         for(let q = 0; q < this._numOfQuests; q++) {
             const currQID: QuestID = this._questIDs[q];
             const currQuest: QuestData = this._questCache[currQID];
-            if(currQID === "default") continue; // fixme: hacky fix for JSON loading
 
             if(
                 critExcludeQuests.indexOf(currQID) !== -1 ||

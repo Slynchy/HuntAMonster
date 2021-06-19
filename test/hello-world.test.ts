@@ -2,9 +2,9 @@ import { suite, test } from '@testdeck/mocha';
 import * as _chai from 'chai';
 import { expect } from 'chai';
 import { HuntAMonster } from "../src/HuntAMonster";
-import * as data from "../src/monsters.json";
-import * as questData from "../src/quests.json";
 import { LANGUAGES, RANK } from "../src/Enums";
+import { Quests as questData } from "../src/Quests";
+import { Monsters as data } from "../src/Monsters";
 
 _chai.should();
 @suite class HelloWorldTests {
@@ -40,7 +40,7 @@ _chai.should();
 
     @test
     'an empty search should return all quests'(): any {
-        const questsLength: number = Object.keys(questData).length - 1;
+        const questsLength: number = Object.keys(questData).length;
         const result: number = HuntAMonster.findQuests({}).quests.length;
         expect(result).to.equal(questsLength);
     }
